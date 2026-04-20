@@ -8,7 +8,7 @@ from transformers import ViTForImageClassification, ViTImageProcessor
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # -------------------------------
-# LOAD MODEL (YOUR TRAINED MODEL)
+# LOAD MODEL 
 # -------------------------------
 model_path = "./vit-deepfake/checkpoint-55"
 model = ViTForImageClassification.from_pretrained(model_path).to(device)
