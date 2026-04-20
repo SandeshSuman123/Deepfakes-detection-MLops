@@ -10,16 +10,6 @@ Dataset structure expected:
 Run:
     python train.py
 
-Optimized for NVIDIA RTX PRO 6000 Blackwell (102GB VRAM).
-
-FIXES APPLIED vs original:
-  1. CUDA assert crash  → label clamping + assert + corrupt-image fallback in __getitem__
-  2. collate_fn         → torch.stack() on pre-made tensors (not double-wrapping)
-  3. GPU imbalance      → CUDA_VISIBLE_DEVICES="0" forces single-GPU, avoids DataParallel split
-  4. warmup_ratio       → replaced with warmup_steps (warmup_ratio deprecated in Trainer v5.2)
-  5. BATCH sizes        → bumped to 256 train / 512 eval to fully utilise 102 GB VRAM
-  6. NUM_WORKERS        → raised to 16 for the Blackwell workstation's high core count
-  7. Graceful mlflow    → wrapped in try/except so training still works without mlflow server
 """
 
 import os
