@@ -32,11 +32,11 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
-# ── FIX 3: Use only the primary 102 GB GPU, avoid DataParallel imbalance ───────
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # ─────────────────────────────────────────────
-# CONFIG — change DATA_DIR to your dataset path
+Dataset path
 # ─────────────────────────────────────────────
 DATA_DIR    = "/home/sandesh/deepfake_project/Celeb_V2"  # folder with train/ val/ test/
 MODEL_NAME  = "google/vit-base-patch16-224"
@@ -45,11 +45,11 @@ HF_REPO     = "sandesh2233/Deepfakes_detection"
 PUSH_TO_HUB = True   # set True after `huggingface-cli login`
 
 # RTX PRO 6000 Blackwell (102 GB) optimised settings
-BATCH_TRAIN  = 256    # ── FIX 5: was 128, 102 GB handles 256 easily
-BATCH_EVAL   = 512    # ── FIX 5: was 256
+BATCH_TRAIN  = 256    
+BATCH_EVAL   = 512    
 EPOCHS       = 5
 LR           = 2e-4
-NUM_WORKERS  = 16     # ── FIX 6: was 8; match your workstation CPU core count
+NUM_WORKERS  = 16     
 IMG_SIZE     = 224
 
 # Labels
