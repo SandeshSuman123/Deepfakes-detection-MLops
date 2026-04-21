@@ -56,6 +56,10 @@ IMG_SIZE     = 224
 ID2LABEL = {0: "real", 1: "fake"}
 LABEL2ID = {"real": 0, "fake": 1}
 
+# Folder to save new uploaded images
+NEW_DATA_DIR = "./new_data"
+RETRAIN_THRESHOLD = 50  # retrain after 50 new images
+
 
 # ─────────────────────────────────────────────
 # DATASET
